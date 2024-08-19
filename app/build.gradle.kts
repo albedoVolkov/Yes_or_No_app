@@ -38,11 +38,15 @@ android {
     kotlinOptions {
         jvmTarget = "19"
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
-
-    kotlin("kapt")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -54,6 +58,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Kotlin Library
+    implementation(libs.androidx.work.runtime.ktx)
 
     // ViewModel
     implementation(libs.androidx.viewmodel)
